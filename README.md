@@ -5,11 +5,12 @@ A full-stack, multi-channel notification dashboard built with Django and React. 
 ## 🔐 How to Login as Admin
 
 1. Make sure both your backend and frontend are running.
-2. Go to your frontend URL (e.g. `http://localhost:5173` or your Vercel URL).
-3. **Login Details:**
-   - **Username:** `admin`
-   - **Password:** `admin123`
-4. Once logged in, click the **Settings (Gear Icon)** in the top navigation to access the Notification Triggers Dashboard.
+2. Go to your frontend URL (e.g. `https://notification-system-opal.vercel.app/` or your Vercel URL).
+3. **Create an Account:**
+   - Click on the "Register" tab to create your new admin account (e.g. Username, Phone, Email, Password).
+4. **Login & Access Dashboard:**
+   - After registering, use those same credentials to log in.
+   - Once logged in, click the **Settings (Gear Icon)** in the top navigation to access the Notification Triggers Dashboard!
 
 ## ⚡ Triggers Built
 
