@@ -1,54 +1,55 @@
 # Notification System
 
-A full-stack, multi-channel notification and alert system built with **Django** and **React**. This system allows users and administrators to trigger and route notifications dynamically across **WhatsApp**, **Email (Resend)**, and **Web Push (OneSignal)**.
+A full-stack, multi-channel notification dashboard built with Django and React. Route messages to WhatsApp, Email, and Web Push notifications instantly.
 
-## 🚀 Features
+## 🔐 How to Login as Admin
 
-- **Multi-Channel Delivery:** Send messages via WhatsApp, Email, and Web Push notifications from a central hub.
-- **Dynamic Trigger Matrix:** A modern, fully responsive dashboard matrix where you can toggle active channels on or off for specific system events (e.g., `login`, `logout`).
-- **Template Customization:** Edit and customize the message templates sent to users for each channel.
-- **Live Testing Simulator:** Safely fire test notifications to specific channels or simulate full global triggers straight from the dashboard.
-- **Optimistic React UI:** A sleek, glassmorphic UI built with React, Vite, and Lucide Icons that natively adapts to desktop and mobile layouts.
+1. Make sure both your backend and frontend are running.
+2. Go to your frontend URL (e.g. `http://localhost:5173` or your Vercel URL).
+3. **Login Details:**
+   - **Username:** `admin`
+   - **Password:** `admin123`
+4. Once logged in, click the **Settings (Gear Icon)** in the top navigation to access the Notification Triggers Dashboard.
 
-## 🛠 Tech Stack
+## ⚡ Triggers Built
 
-- **Frontend:** React (Vite), vanilla CSS (Glassmorphism design system)
-- **Backend:** Python, Django, Django REST Framework
-- **Database:** SQLite (dev) / PostgreSQL (prod ready)
-- **Integrations:**
-  - OneSignal (Web Push Notifications)
-  - Resend (Email Delivery)
-  - Interakt / WhatsApp API (WhatsApp Messaging)
+The system currently supports the following global event triggers:
 
-## 📦 Local Setup
+1. **`login`** - Fired automatically when a user logs into the system.
+2. **`logout`** - Fired automatically when a user logs out.
+3. **`registration`** - Fired when a new user signs up.
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/Sachin8709/Notification-System.git
-   ```
+*(Note: The Password Reset trigger was intentionally removed).*
 
-2. **Backend Setup:**
-   ```bash
-   cd backend
-   python -m venv venv
-   source venv/bin/activate  # Or venv\Scripts\activate on Windows
-   pip install -r requirements.txt
-   
-   # Setup your backend/.env file with API Keys!
-   
-   python manage.py migrate
-   python manage.py runserver
-   ```
+You can toggle WhatsApp, Email (Resend), or Web Push (OneSignal) deliveries independently for each of these triggers from the Admin Dashboard!
 
-3. **Frontend Setup:**
-   ```bash
-   cd frontend
-   npm install
-   
-   # Setup your frontend/.env file with VITE_API_BASE_URL
-   
-   npm run dev
-   ```
+## 🔑 Environment Variables Needed
 
-## 🔒 Security Note
-**No API keys or sensitive credentials are included in this repository.** All sensitive data must be managed locally using `.env` files, which are strictly ignored via `.gitignore`. 
+You must provide the following API keys and settings in your environment variables to make the system work:
+
+### Backend (`backend/.env`)
+```ini
+SECRET_KEY=your_django_secret_key
+DEBUG=False
+ALLOWED_HOSTS=*
+
+# Resend Email Integration
+RESEND_API_KEY=re_your_api_key
+RESEND_FROM_EMAIL=onboarding@resend.dev
+
+# WhatsApp Integration
+WHATSAPP_API_TOKEN=your_whatsapp_token
+
+# OneSignal Web Push Integration
+ONESIGNAL_APP_ID=your_onesignal_app_id
+ONESIGNAL_API_KEY=your_onesignal_api_key
+```
+
+### Frontend (`frontend/.env`)
+```ini
+# The URL where your backend is running
+VITE_API_BASE_URL=https://your-backend-url.com
+
+# OneSignal Web Push Integration
+VITE_ONESIGNAL_APP_ID=your_onesignal_app_id
+```
